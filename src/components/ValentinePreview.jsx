@@ -54,11 +54,13 @@ function ValentinePreview({ formData, step, onNextStep }) {
 
     if (currentStep === 1) {
       if (response === 'yes') {
+        setShowFinalMessage(true);
         if (!formData.imageUrl || imageError) {
           setCurrentGif('/sii.gif');
+        } else {
+          setCurrentGif(null);
         }
         setMessage('¡Qué felicidad! 💖');
-        setShowFinalMessage(true);
       } else if (response === 'think') {
         setCurrentGif('/acepta.gif');
         setMessage('Piénsalo bien...');
@@ -70,15 +72,16 @@ function ValentinePreview({ formData, step, onNextStep }) {
       }
     } else if (currentStep === 2) {
       if (response === 'yes') {
+        setShowFinalMessage(true);
         if (!formData.imageUrl || imageError) {
           setCurrentGif('/sii.gif');
+        } else {
+          setCurrentGif(null);
         }
         setMessage('Iiiiiiiiiii, yo sabía que aceptarias 💖');
-        setShowFinalMessage(true);
-
       } else if (response === 'think') {
         setCurrentGif('/andaleacepta.gif');
-        setMessage('Andaleee acepta ');
+        setMessage('Andaleee acepta');
         setTimeout(() => {
           setCurrentStep(3);
           setShowButtons(true);
@@ -87,11 +90,13 @@ function ValentinePreview({ formData, step, onNextStep }) {
       }
     } else if (currentStep === 3) {
       if (response === 'yes') {
+        setShowFinalMessage(true);
         if (!formData.imageUrl || imageError) {
           setCurrentGif('/sii.gif');
+        } else {
+          setCurrentGif(null);
         }
         setMessage('¡Qué felicidad! 💖');
-        setShowFinalMessage(true);
       } else if (response === 'no') {
         setCurrentGif('/YandereYunoGun.gif');
         setMessage('Última oportunidad acepta, o voy por ti a tu casa 🔪');
@@ -103,11 +108,13 @@ function ValentinePreview({ formData, step, onNextStep }) {
       }
     } else if (currentStep === 4) {
       if (response === 'yes') {
+        setShowFinalMessage(true);
         if (!formData.imageUrl || imageError) {
           setCurrentGif('/sii.gif');
+        } else {
+          setCurrentGif(null);
         }
         setMessage('¡Qué felicidad! 💖');
-        setShowFinalMessage(true);
       } else if (response === 'no') {
         setCurrentGif('/cry.gif');
         setMessage('Bueno, lo intente...');
@@ -118,7 +125,7 @@ function ValentinePreview({ formData, step, onNextStep }) {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="bg-white rounded-lg shadow-2xl p-8 text-center transform hover:scale-105 transition-transform duration-300">
-        {step === 1 && !currentGif ? (
+        {step === 1 && !currentGif && !showFinalMessage ? (
           <>
             {formData.imageUrl && !imageError && (
               <div className="relative w-full h-64 mb-6 overflow-hidden rounded-lg">
@@ -143,56 +150,18 @@ function ValentinePreview({ formData, step, onNextStep }) {
           </>
         ) : (
           <div className="space-y-8">
-            {currentGif ? (
+            {!showFinalMessage ? (
               <>
-                <div className="relative w-full h-64 mb-6 overflow-hidden rounded-lg">
-                  <img
-                    src={currentGif}
-                    alt="Reacción"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <p className="text-2xl font-bold text-blue-400">{message}</p>
-                {showFinalMessage && (
-                  <>
-                    <div ref={screenshotRef} className="final-message">
-                      {formData.imageUrl && !imageError ? (
-                        <div className="w-full h-64 mb-6 overflow-hidden rounded-lg">
-                          <img
-                            src={getProxiedImageUrl(formData.imageUrl)}
-                            alt="Valentine"
-                            className="w-full h-full object-contain rounded-lg"
-                            onError={handleImageError}
-                            crossOrigin="anonymous"
-                          />
-                        </div>
-                      ) : (
-                        <div className="w-full h-64 mb-6 overflow-hidden rounded-lg">
-                          <img
-                            src="/sii.gif"
-                            alt="Celebración"
-                            className="w-full h-full object-contain rounded-lg"
-                          />
-                        </div>
-                      )}
-                      <div className="flex items-center justify-center text-3xl font-bold text-blue-400 mb-4 gap-3">
-                        <span>{formData.senderName}</span>
-                        <FaHeart className="text-red-500 text-4xl" />
-                        <span>{formData.receiverName}</span>
-                      </div>
-                      <p className="text-xl text-gray-700 mb-4">{formData.message}</p>
-                    </div>
-                    <button
-                      onClick={handleScreenshot}
-                      className="bg-blue-400 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition-all duration-300 flex items-center gap-2 mx-auto no-screenshot"
-                    >
-                      <FaCamera /> Guardar Recuerdo
-                    </button>
-                  </>
+                {currentGif && (
+                  <div className="relative w-full h-64 mb-6 overflow-hidden rounded-lg">
+                    <img
+                      src={currentGif}
+                      alt="Reacción"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 )}
-              </>
-            ) : (
-              <>
+                <p className="text-2xl font-bold text-blue-400">{message}</p>
                 <h2 className="text-5xl font-bold text-blue-400 mb-10">
                   ¿Quieres ser mi San Valentín? 💝
                 </h2>
@@ -222,6 +191,42 @@ function ValentinePreview({ formData, step, onNextStep }) {
                     )}
                   </div>
                 )}
+              </>
+            ) : (
+              <>
+                <div ref={screenshotRef} className="final-message">
+                  {formData.imageUrl && !imageError ? (
+                    <div className="w-full h-64 mb-6 overflow-hidden rounded-lg">
+                      <img
+                        src={getProxiedImageUrl(formData.imageUrl)}
+                        alt="Valentine"
+                        className="w-full h-full object-contain rounded-lg"
+                        onError={handleImageError}
+                        crossOrigin="anonymous"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-full h-64 mb-6 overflow-hidden rounded-lg">
+                      <img
+                        src="/sii.gif"
+                        alt="Celebración"
+                        className="w-full h-full object-contain rounded-lg"
+                      />
+                    </div>
+                  )}
+                  <div className="flex items-center justify-center text-3xl font-bold text-blue-400 mb-4 gap-3">
+                    <span>{formData.senderName}</span>
+                    <FaHeart className="text-red-500 text-4xl" />
+                    <span>{formData.receiverName}</span>
+                  </div>
+                  <p className="text-xl text-gray-700 mb-4">{formData.message}</p>
+                </div>
+                <button
+                  onClick={handleScreenshot}
+                  className="bg-blue-400 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition-all duration-300 flex items-center gap-2 mx-auto no-screenshot"
+                >
+                  <FaCamera /> Guardar Recuerdo
+                </button>
               </>
             )}
           </div>

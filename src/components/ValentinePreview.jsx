@@ -124,15 +124,15 @@ function ValentinePreview({ formData, step, onNextStep }) {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <div className="bg-white rounded-lg shadow-2xl p-8 text-center transform hover:scale-105 transition-transform duration-300">
+      <div className="bg-white rounded-lg shadow-2xl p-8 text-center">
         {step === 1 && !currentGif && !showFinalMessage ? (
           <>
             {formData.imageUrl && !imageError && (
-              <div className="relative w-full max-w-md mx-auto mb-6">
+              <div className="flex justify-center items-center mb-6">
                 <img
                   src={getProxiedImageUrl(formData.imageUrl)}
                   alt="Valentine"
-                  className="w-auto max-h-64 mx-auto hover:scale-105 transition-transform duration-500"
+                  className="max-w-[300px] max-h-[300px] object-contain"
                   onError={handleImageError}
                   crossOrigin="anonymous"
                 />
@@ -153,11 +153,11 @@ function ValentinePreview({ formData, step, onNextStep }) {
             {!showFinalMessage ? (
               <>
                 {currentGif && (
-                  <div className="relative w-full max-w-md mx-auto mb-6">
+                  <div className="flex justify-center items-center mb-6">
                     <img
                       src={currentGif}
                       alt="Reacción"
-                      className="w-auto max-h-64 mx-auto"
+                      className="max-w-[300px] max-h-[300px] object-contain"
                     />
                   </div>
                 )}
@@ -194,23 +194,23 @@ function ValentinePreview({ formData, step, onNextStep }) {
               </>
             ) : (
               <>
-                <div ref={screenshotRef} className="final-message">
+                <div ref={screenshotRef} className="bg-white p-8 rounded-lg">
                   {formData.imageUrl && !imageError ? (
-                    <div className="w-full max-w-md mx-auto mb-6">
+                    <div className="flex justify-center items-center mb-6">
                       <img
                         src={getProxiedImageUrl(formData.imageUrl)}
                         alt="Valentine"
-                        className="w-auto max-h-64 mx-auto"
+                        className="max-w-[300px] max-h-[300px] object-contain"
                         onError={handleImageError}
                         crossOrigin="anonymous"
                       />
                     </div>
                   ) : (
-                    <div className="w-full max-w-md mx-auto mb-6">
+                    <div className="flex justify-center items-center mb-6">
                       <img
                         src="/sii.gif"
                         alt="Celebración"
-                        className="w-auto max-h-64 mx-auto"
+                        className="max-w-[300px] max-h-[300px] object-contain"
                       />
                     </div>
                   )}

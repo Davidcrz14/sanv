@@ -73,16 +73,17 @@ function ValentinePreview({ formData, step, onNextStep }) {
         if (!formData.imageUrl || imageError) {
           setCurrentGif('/sii.gif');
         }
-        setMessage('¡Qué felicidad! 💖');
+        setMessage('Iiiiiiiiiii, yo sabía que aceptarias 💖');
         setShowFinalMessage(true);
+
       } else if (response === 'think') {
         setCurrentGif('/andaleacepta.gif');
-        setMessage('¡Andaleee acepta yaa!');
+        setMessage('Andaleee acepta ');
         setTimeout(() => {
           setCurrentStep(3);
           setShowButtons(true);
           setCurrentGif(null);
-        }, 3000);
+        }, 4000);
       }
     } else if (currentStep === 3) {
       if (response === 'yes') {
@@ -98,7 +99,7 @@ function ValentinePreview({ formData, step, onNextStep }) {
           setCurrentStep(4);
           setShowButtons(true);
           setCurrentGif(null);
-        }, 3000);
+        }, 6000);
       }
     } else if (currentStep === 4) {
       if (response === 'yes') {
@@ -109,7 +110,7 @@ function ValentinePreview({ formData, step, onNextStep }) {
         setShowFinalMessage(true);
       } else if (response === 'no') {
         setCurrentGif('/cry.gif');
-        setMessage('💔');
+        setMessage('Bueno, lo intente...');
       }
     }
   };

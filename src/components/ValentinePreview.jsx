@@ -128,11 +128,11 @@ function ValentinePreview({ formData, step, onNextStep }) {
         {step === 1 && !currentGif && !showFinalMessage ? (
           <>
             {formData.imageUrl && !imageError && (
-              <div className="relative w-full h-64 mb-6 overflow-hidden rounded-lg">
+              <div className="relative w-full max-w-md mx-auto mb-6">
                 <img
                   src={getProxiedImageUrl(formData.imageUrl)}
                   alt="Valentine"
-                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
+                  className="w-auto max-h-64 mx-auto hover:scale-105 transition-transform duration-500"
                   onError={handleImageError}
                   crossOrigin="anonymous"
                 />
@@ -153,11 +153,11 @@ function ValentinePreview({ formData, step, onNextStep }) {
             {!showFinalMessage ? (
               <>
                 {currentGif && (
-                  <div className="relative w-full h-64 mb-6 overflow-hidden rounded-lg">
+                  <div className="relative w-full max-w-md mx-auto mb-6">
                     <img
                       src={currentGif}
                       alt="Reacción"
-                      className="w-full h-full object-contain"
+                      className="w-auto max-h-64 mx-auto"
                     />
                   </div>
                 )}
@@ -196,21 +196,21 @@ function ValentinePreview({ formData, step, onNextStep }) {
               <>
                 <div ref={screenshotRef} className="final-message">
                   {formData.imageUrl && !imageError ? (
-                    <div className="w-full h-64 mb-6 overflow-hidden rounded-lg">
+                    <div className="w-full max-w-md mx-auto mb-6">
                       <img
                         src={getProxiedImageUrl(formData.imageUrl)}
                         alt="Valentine"
-                        className="w-full h-full object-contain rounded-lg"
+                        className="w-auto max-h-64 mx-auto"
                         onError={handleImageError}
                         crossOrigin="anonymous"
                       />
                     </div>
                   ) : (
-                    <div className="w-full h-64 mb-6 overflow-hidden rounded-lg">
+                    <div className="w-full max-w-md mx-auto mb-6">
                       <img
                         src="/sii.gif"
                         alt="Celebración"
-                        className="w-full h-full object-contain rounded-lg"
+                        className="w-auto max-h-64 mx-auto"
                       />
                     </div>
                   )}

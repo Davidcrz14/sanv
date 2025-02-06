@@ -123,10 +123,10 @@ function App() {
           <div className="footer-divider" />
 
           <div className="footer-links">
-            <a href="https://github.com/tuusuario" className="footer-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Davidcrz14" className="footer-link" target="_blank" rel="noopener noreferrer">
               <FaGithub /> GitHub
             </a>
-            <a href="https://github.com/Davidcrz14" className="footer-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/shippostmiau/" className="footer-link" target="_blank" rel="noopener noreferrer">
               <FaInstagram /> Instagram
             </a>
           </div>

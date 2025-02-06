@@ -137,3 +137,270 @@ html {
   margin: 2rem auto;
   max-width: 600px;
 }
+
+/* Estilos para el anuncio de AdSense */
+.adsense-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+/* Estilos para mejorar la presentación */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.card-content {
+  font-size: 1.25rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.button {
+  background: #3b82f6;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(59, 130, 246, 0.2);
+}
+
+/* Estilos para el formulario de San Valentín */
+.valentine-form {
+  background-color: #ffe4e8;
+  border: 2px solid #ff6b8b;
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.valentine-form::before,
+.valentine-form::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #ffe4e8;
+  border: 2px solid #ff6b8b;
+  border-radius: 10px;
+}
+
+.valentine-form::before {
+  top: -20px;
+  left: -20px;
+  transform: rotate(45deg);
+}
+
+.valentine-form::after {
+  bottom: -20px;
+  right: -20px;
+  transform: rotate(45deg);
+}
+
+.screenshot-container {
+  background-color: #ffe4e8;
+  border: 2px solid #ff6b8b;
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.valentine-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.valentine-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ff6b8b;
+  border-radius: 10px;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.valentine-input:focus {
+  outline: none;
+  border-color: #ff4d6d;
+  box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.2);
+}
+
+.valentine-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ff4d6d;
+  font-weight: 600;
+}
+
+.valentine-button {
+  background-color: #ff4d6d;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.valentine-button:hover {
+  background-color: #ff6b8b;
+  transform: translateY(-2px);
+}
+
+.corner-hearts {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  color: #ff6b8b;
+  z-index: 1;
+}
+
+.top-left {
+  top: 10px;
+  left: 10px;
+}
+.top-right {
+  top: 10px;
+  right: 10px;
+}
+.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+.bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Asegurarse de que los corazones se muestren en la captura */
+.screenshot-hearts {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  color: #ff6b8b;
+}
+
+/* Estilos para el footer */
+.valentine-footer {
+  background-color: #ffe4e8;
+  border-top: 2px solid #ff6b8b;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-hearts {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  color: rgba(255, 107, 139, 0.2);
+}
+
+.footer-heart-1 {
+  top: 10%;
+  left: 5%;
+  transform: rotate(-15deg);
+}
+.footer-heart-2 {
+  top: 30%;
+  right: 10%;
+  transform: rotate(25deg);
+}
+.footer-heart-3 {
+  bottom: 20%;
+  left: 15%;
+  transform: rotate(-25deg);
+}
+.footer-heart-4 {
+  bottom: 40%;
+  right: 20%;
+  transform: rotate(15deg);
+}
+
+.footer-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #ff4d6d;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.footer-text {
+  color: #ff6b8b;
+  text-align: center;
+  font-size: 1rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.footer-link {
+  color: #ff4d6d;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ff6b8b;
+  transform: translateY(-2px);
+}
+
+.footer-divider {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #ff6b8b, transparent);
+  margin: 1rem 0;
+}

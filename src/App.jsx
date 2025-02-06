@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FaGithub, FaHeart, FaInstagram } from 'react-icons/fa';
 import './App.css';
 import ValentineForm from './components/ValentineForm';
 import ValentinePreview from './components/ValentinePreview';
@@ -10,7 +11,6 @@ function App() {
     message: '',
     imageUrl: ''
   });
-  const [step, setStep] = useState(1);
   const [isPreview, setIsPreview] = useState(false);
   const [shareableLink, setShareableLink] = useState('');
 
@@ -66,10 +66,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-blue-200 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-pink-200 to-purple-300 relative overflow-hidden">
       <div className="floating-hearts" />
       <div className="min-h-screen flex flex-col items-center justify-center p-6 relative z-10">
-        <div className="container mx-auto max-w-4xl px-4 flex-grow flex items-center justify-center">
+        <div className="container mx-auto max-w-4xl px-4 flex-grow flex flex-col items-center justify-center">
           <div className="w-full animate-fade-in">
             {!isPreview ? (
               <ValentineForm
@@ -79,20 +79,16 @@ function App() {
               />
             ) : (
               <>
-                <ValentinePreview
-                  formData={formData}
-                  step={step}
-                  onNextStep={() => setStep(2)}
-                />
+                <ValentinePreview formData={formData} />
                 {shareableLink && (
-                  <div className="mt-8 text-center">
-                    <p className="text-lg mb-4 text-blue-600 font-semibold">¡Comparte este link con tu San Valentín! 💌</p>
-                    <div className="bg-white p-4 rounded-lg shadow-md">
+                  <div className="valentine-form mt-8">
+                    <h2 className="valentine-title">¡Comparte el Amor! 💌</h2>
+                    <div className="space-y-4">
                       <input
                         type="text"
                         value={shareableLink}
                         readOnly
-                        className="w-full p-2 border rounded text-sm"
+                        className="valentine-input"
                         onClick={(e) => e.target.select()}
                       />
                       <button
@@ -100,7 +96,7 @@ function App() {
                           navigator.clipboard.writeText(shareableLink);
                           alert('¡Link copiado!');
                         }}
-                        className="mt-2 bg-blue-400 text-white px-4 py-2 rounded-full hover:bg-blue-500 transition-all duration-300"
+                        className="valentine-button"
                       >
                         Copiar Link
                       </button>
@@ -110,8 +106,36 @@ function App() {
               </>
             )}
           </div>
+          <div className="adsense-container">
+            {/* Inserta aquí tu código de anuncio de AdSense */}
+          </div>
         </div>
       </div>
+
+      <footer className="valentine-footer">
+        <FaHeart className="footer-hearts footer-heart-1" />
+        <FaHeart className="footer-hearts footer-heart-2" />
+        <FaHeart className="footer-hearts footer-heart-3" />
+        <FaHeart className="footer-hearts footer-heart-4" />
+
+        <div className="footer-content">
+          <h3 className="footer-title">Espero que les guste</h3>
+          <div className="footer-divider" />
+
+          <div className="footer-links">
+            <a href="https://github.com/tuusuario" className="footer-link" target="_blank" rel="noopener noreferrer">
+              <FaGithub /> GitHub
+            </a>
+            <a href="https://github.com/Davidcrz14" className="footer-link" target="_blank" rel="noopener noreferrer">
+              <FaInstagram /> Instagram
+            </a>
+          </div>
+          <div className="footer-divider" />
+          <p className="footer-text text-sm">
+            © {new Date().getFullYear()} - Hecho con <FaHeart className="inline-block text-red-500" /> por DavC / Bliss
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

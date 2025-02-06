@@ -1,64 +1,73 @@
 import PropTypes from 'prop-types';
+import { FaHeart } from 'react-icons/fa';
 
 function ValentineForm({ formData, onInputChange, onSubmit }) {
   return (
-    <form onSubmit={onSubmit} className="w-full max-w-2xl bg-white rounded-lg shadow-xl p-8 mx-auto">
-      <h1 className="text-4xl font-bold text-center text-blue-400 mb-8">Crea tu Mensaje de San Valentín</h1>
+    <form onSubmit={onSubmit} className="valentine-form">
+      <FaHeart className="corner-hearts top-left" />
+      <FaHeart className="corner-hearts top-right" />
+      <FaHeart className="corner-hearts bottom-left" />
+      <FaHeart className="corner-hearts bottom-right" />
 
-      <div className="space-y-6">
+      <h2 className="valentine-title">Valentine&apos;s Day</h2>
+
+      <div className="space-y-4">
         <div>
-          <label className="block text-gray-700 text-lg mb-2">Tu Nombre</label>
+          <label className="valentine-label">Tu Nombre</label>
           <input
             type="text"
             name="senderName"
             value={formData.senderName}
             onChange={onInputChange}
-            className="w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg"
+            className="valentine-input"
+            placeholder="¿Quién envía este mensaje de amor?"
             required
           />
         </div>
-
         <div>
-          <label className="block text-gray-700 text-lg mb-2">Nombre de tu San Valentín</label>
+          <label className="valentine-label">Nombre de tu San Valentín</label>
           <input
             type="text"
             name="receiverName"
             value={formData.receiverName}
             onChange={onInputChange}
-            className="w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg"
+            className="valentine-input"
+            placeholder="¿Para quién es este mensaje especial?"
             required
           />
         </div>
-
         <div>
-          <label className="block text-gray-700 text-lg mb-2">URL de Imagen (opcional)</label>
+          <label className="valentine-label">URL de Imagen (Opcional)</label>
           <input
             type="url"
             name="imageUrl"
             value={formData.imageUrl}
             onChange={onInputChange}
-            className="w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg"
+            className="valentine-input"
+            placeholder="https://ejemplo.com/imagen.jpg"
           />
         </div>
-
         <div>
-          <label className="block text-gray-700 text-lg mb-2">Mensaje Personalizado</label>
+          <label className="valentine-label">Mensaje Personalizado</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={onInputChange}
-            className="w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 h-40 text-lg"
+            className="valentine-input"
+            style={{ minHeight: "120px" }}
+            placeholder="Escribe un mensaje especial para tu San Valentín..."
             required
           />
         </div>
       </div>
-
-      <button
-        type="submit"
-        className="w-full bg-blue-400 text-white py-4 rounded-lg mt-8 hover:bg-blue-500 transition-colors text-xl font-semibold"
-      >
-        Generar Mensaje ❤️
-      </button>
+      <div className="flex justify-center mt-6">
+        <button
+          type="submit"
+          className="valentine-button"
+        >
+          <FaHeart className="mr-2" /> Crear Tarjeta
+        </button>
+      </div>
     </form>
   );
 }
@@ -68,7 +77,7 @@ ValentineForm.propTypes = {
     senderName: PropTypes.string.isRequired,
     receiverName: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
-    imageUrl: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string,
   }).isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
